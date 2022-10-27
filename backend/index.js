@@ -5,6 +5,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser') 
 const AuthRoute = require('./routes/auth')
+const userRouter = require('./routes/user')
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -16,6 +17,6 @@ mongoose.connect(process.env.MONGODB_URL,()=>{
 })
 
 app.listen(5000,()=>{
-    console.log("sever is running")
+    console.log("sever is running 5000")
 })
 app.use('/api',AuthRoute)

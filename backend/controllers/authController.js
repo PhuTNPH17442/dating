@@ -13,7 +13,7 @@ const register = (req , res , next)=>{
   let user = new User({
     username : req.body.username,
     email: req.body.email,
-    password: hash,
+    password: req.body.password,
 
   })
   user.save()
