@@ -7,7 +7,7 @@ const userSchema = new Schema({
     password:{type:String},
     admin:{
         type:Boolean,
-        default:true
+        default:false
     }
 },{timestamps:true})
 const User = mongoose.model('User',userSchema)

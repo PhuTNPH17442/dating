@@ -44,10 +44,14 @@ const login = (req,res,next)=>{
                     })
                 }
                 if(result){
-                    let token = jwt.sign({username: user.username}, 'verySecretvalue',{expiresIn:'1h'})
+                    let token = jwt.sign({username: user.username}, 'secretValue',{expiresIn:'1h'})
+
+                    let refreshtoken = jwt.sign({username: user.username}, 'refreshtokensecret',{expiresIn:'2d'})
+
                     res.json({
                         message:'Login successful',
-                        token
+                        token,
+                        refreshtoken
                     })
                 }else{
                     res.json({
