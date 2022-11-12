@@ -66,7 +66,13 @@ const login = (req,res,next)=>{
         }
     })
 }
+const logOut = async (req, res) => {
+    
+    refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
+    res.clearCookie("refreshToken");
+    res.status(200).json("Logged out successfully!");
+  }
 
 module.exports={
-    register,login
+    register,login,logOut
 }
